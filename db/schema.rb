@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_080817) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_082538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "allergies", force: :cascade do |t|
-    t.string "allergy_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "day_dishes", force: :cascade do |t|
     t.bigint "menu_id", null: false
@@ -62,10 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_080817) do
 
   create_table "profile_allergies", force: :cascade do |t|
     t.bigint "profile_id", null: false
-    t.bigint "allergy_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["allergy_id"], name: "index_profile_allergies_on_allergy_id"
+    t.bigint "ingredient_id", null: false
+    t.index ["ingredient_id"], name: "index_profile_allergies_on_ingredient_id"
     t.index ["profile_id"], name: "index_profile_allergies_on_profile_id"
   end
 
@@ -115,7 +109,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_080817) do
   add_foreign_key "dish_ingredients", "ingredients"
   add_foreign_key "menus", "profiles"
   add_foreign_key "menus", "school_menus"
-  add_foreign_key "profile_allergies", "allergies"
+  add_foreign_key "profile_allergies", "ingredients"
   add_foreign_key "profile_allergies", "profiles"
   add_foreign_key "profiles", "schools"
   add_foreign_key "school_menus", "schools"
