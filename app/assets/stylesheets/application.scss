@@ -10,3 +10,33 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+p.bold {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+label {
+  font-size: 14;
+  font-weight: 300;
+}
