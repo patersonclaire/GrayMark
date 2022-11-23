@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     resources :ingredients, except: %i[delete]
   end
 
-  resrouces :ingredients, only: %i[] do
+  resources :ingredients, only: %i[] do
     resources :dish_ingredients, only: %i[index show]
   end
 
