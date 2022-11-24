@@ -10,6 +10,20 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bgimg {
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("Background.jpg");
+  height: 100%;
+}
 
 h1 {
   font-size: 48px;
