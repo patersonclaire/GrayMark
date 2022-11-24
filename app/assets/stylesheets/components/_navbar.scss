@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: white;
   height: 100px;
+  padding: 9px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -14,12 +15,11 @@
 }
 
 .avatar.dropdown-toggle {
-  margin: 10px;
-
+  margin-left: 10px;
 }
 
 .logo {
-  width: 150px;
-  height: 130px;
-  object-fit: cover;
+  width: 160px;
+  height: 100px;
+  margin: 15px
 }
