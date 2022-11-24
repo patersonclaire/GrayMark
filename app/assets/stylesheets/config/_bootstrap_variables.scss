@@ -6,19 +6,27 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $white;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $yellow;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
+// Buttons
+$body-color: $black;
+$primary:    $indian-yellow;
+$secondary:  $moss-green;
+$outline:    $indian-yellow;
+$success:    $tea-green;
+$info:       $linen;
+$danger:     $orange;
 $warning:    $orange;
+
+// Cards
+$card-bg:    $linen;
+
 
 // Buttons & inputs' radius
 $border-radius:    6px;
 $border-radius-lg: 6px;
 $border-radius-sm: 6px;
 // Override other variables below!
+// $btn-link-hover-color: $black;
