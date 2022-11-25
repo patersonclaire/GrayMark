@@ -10,14 +10,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-        <button type="button" class="btn btn-primary1">Add a School</button>
-        <button type="button" class="btn btn-primary">Create a new Menu</button>
+          <li class="nav-item">
+            <%= link_to 'Dashboard', "#", class:"btn btn-link" %>
+          </li>
+          <li>
+            <%= link_to 'Add a School', new_school_path, class: 'btn btn-primary' %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "clairesister.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
