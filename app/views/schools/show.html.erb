@@ -4,15 +4,15 @@
   <h3> <%= @school.postcode %></h3>
 
   <div class="cards">
-      <% @school.school_menus.order(date: :DESC).each do |school_menu| %>
+      <% @school.school_menus_menus.each do |menu| %>
         <div class="card">
           <div class="card-body">
             <br><br>
-            <h3 class="card-title"><%= school_menu.date.strftime("%d %B '%y") %> - <%= (school_menu.date + 18).strftime("%d %B '%y") %>  </h3>
+            <h3 class="card-title".><%= menu.school_menu.date.strftime("%d %B '%y") %> - <%= (menu.school_menu.date + 18).strftime("%d %B '%y") %>  </h3>
             <%# <p class="card-text"><%= school.postcode %>
             <div>
               <br>
-              <%= link_to "View menu", school_menu_menu(school_menu.id, menu), class: "btn btn-primary" %>
+              <%= link_to "View menu", school_menu_menu_path(menu.school_menu, menu), class: "btn btn-primary" %>
             </div>
           </div>
         </div>

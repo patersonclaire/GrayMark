@@ -8,6 +8,6 @@ class User < ApplicationRecord
   has_many :schools
 
   def user_school_menus
-    schools.extract_associated(:school_menus).first
+    schools.school_menus.extract_associated(:menu).first
   end
 end

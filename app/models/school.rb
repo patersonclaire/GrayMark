@@ -7,4 +7,9 @@ class School < ApplicationRecord
   validates :postcode, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: { scope: :town }
   validates :town, presence: true
+
+
+  def school_menus_menus
+    school_menus.extract_associated(:menus).first
+  end
 end

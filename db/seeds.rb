@@ -62,7 +62,7 @@ menus = JSON.parse(serialized_menu)
 # pp menu
 menus.each do |menu|
   menu = menu['menu']
-  cheam_school_menu = SchoolMenu.create!(school: cheam, date: menu['dates'][0])
+  cheam_school_menu = SchoolMenu.create!(school: cheam, date: Date.parse(menu['dates'][0]))
   Profile.limit(10).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
@@ -130,7 +130,7 @@ menus.each do |menu|
     end
   end
 
-  eton_school_menu = SchoolMenu.create!(school: eton, date: menu['dates'][0])
+  eton_school_menu = SchoolMenu.create!(school: eton, date: Date.parse(menu['dates'][0]))
   Profile.offset(10).limit(10).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
@@ -198,7 +198,7 @@ menus.each do |menu|
     end
   end
 
-  hogwarts_school_menu = SchoolMenu.create!(school: hogwarts, date: menu['dates'][0])
+  hogwarts_school_menu = SchoolMenu.create!(school: hogwarts, date: Date.parse(menu['dates'][0]))
   Profile.offset(20).limit(10).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
@@ -266,7 +266,7 @@ menus.each do |menu|
     end
   end
 
-  bsb_school_menu = SchoolMenu.create!(school: bsb, date: menu['dates'][0])
+  bsb_school_menu = SchoolMenu.create!(school: bsb, date: Date.parse(menu['dates'][0]))
   Profile.offset(30).limit(10).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
@@ -334,7 +334,7 @@ menus.each do |menu|
     end
   end
 
-  st_trinians_school_menu = SchoolMenu.create!(school: st_trinians, date: menu['dates'][0])
+  st_trinians_school_menu = SchoolMenu.create!(school: st_trinians, date: Date.parse(menu['dates'][0]))
   Profile.offset(40).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
