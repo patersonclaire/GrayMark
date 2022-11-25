@@ -5,7 +5,13 @@
       <h1>Safe menus for every child in seconds</h1>
       <h3>Generate safe and nutritious menus for every child and their dietary needs, at a click of a button</h3>
       <br><br>
-      <a class="btn btn-primary" href="#">Create menu</a>
+
+      <% if user_signed_in? %>
+      <%# Add path when merged to dashboard %>
+        <%= link_to "Start now", "#", class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Start now", new_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
     </div>
     </div>
   </div>
