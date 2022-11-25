@@ -3,27 +3,15 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "logoimg.png", class:"logo" %>
     <% end %>
-<%# <button type="button" class="btn btn-link">Home</button>
-<button type="button" class="btn btn-link">About Us</button>
-<button type="button" class="btn btn-link">Pricing</button>
-<button type="button" class="btn btn-link">Features</button>
-<button type="button" class="btn btn-link">Contact</button>
-<button type="button" class="btn btn-link">Login</button> %>
- <%# <button type="button" class="btn btn-primary">Get Started</button> %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <button type="button" class="btn btn-primary">Get Started</button>
         <% if user_signed_in? %>
         <button type="button" class="btn btn-primary1">Add a School</button>
         <button type="button" class="btn btn-primary">Create a new Menu</button>
-          <%# <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          <%# </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "clairesister.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -34,6 +22,9 @@
             </div>
           </li>
         <% else %>
+          <li class="nav-item">
+            <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
