@@ -59,6 +59,7 @@
   background-position: center;
   height: 180px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;
@@ -74,4 +75,11 @@
 .card-category.transparent {
   background-color: none;
   box-shadow: none;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.card-category img {
+  width: 150px;
+  border-radius: 50%;
 }
