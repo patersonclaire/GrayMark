@@ -3,22 +3,21 @@
   <h1>My Schools</h1>
   <h2>Active</h2>
   <br><br>
-  
 
-  <% @schools.each do |school| %>
     <div class="cards">
-      <div class="card">
-        <div class="card-body">
-          <%= cl_image_tag school.photo.key, class:"avatar-large"%>
-          <br><br>
-          <h3 class="card-title"><%= school.name %></h3>
-          <p class="card-text"><%= school.postcode %></p>
-          <div>
-            <br>
-            <a href="#" class="btn btn-outline-dark">View School</a>
+      <% @schools.each do |school| %>
+          <div class="card">
+            <div class="card-body">
+              <%= cl_image_tag school.photo.key, class:"avatar-large"%>
+              <br><br>
+              <h3 class="card-title"><%= school.name %></h3>
+              <p class="card-text"><%= school.postcode %></p>
+              <div>
+                <br>
+                <%= link_to "View menus", school_path(school.id), class: "btn btn-primary"%>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
