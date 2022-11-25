@@ -59,4 +59,12 @@ label {
   background-color: orange;
   padding: 7em 0;
   display: block;
+  width:1440px;
+  height: 269px;
+}
+
+.row > *{
+
+max-width: none;
+
 }
