@@ -14,6 +14,7 @@ puts 'Cleaning database'
 DishIngredient.destroy_all
 ProfileAllergy.destroy_all
 Ingredient.destroy_all
+Dish.destroy_all
 DayDish.destroy_all
 Menu.destroy_all
 SchoolMenu.destroy_all
@@ -51,15 +52,38 @@ st_trinians.photo.attach(io: file, filename: 'st_trinians.jpg', content_type: 'i
 st_trinians.save
 
 CSV.foreach('db/data/allergy.csv', headers: true, header_converters: :symbol) do |row|
-  ingredient = Ingredient.create!(name: row[:name])
+  ingredient = Ingredient.find_or_create_by(name: row[:name])
   profile = Profile.create!(school: cheam)
   profile_allergy = ProfileAllergy.create!(profile: profile, ingredient: ingredient)
 end
 
+dessert_keywords = ['fruit', 'ice cream', 'yoghurt', 'pudding', 'custard', 'angel']
+CSV.foreach('db/data/Ingredients_Allergens.csv', headers: true, header_converters: :symbol, col_sep: ';') do |row|
+  name = row[:recipe]
+  allergens = row[:allergens]
+  course = dessert_keywords.include?(name) ? 'dessert' : 'main'
+  dish = Dish.create!(name: name, course: course)
+  # url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=#{ENV['SPOONACULAR_API']}&query=#{name}"
+  # response = URI.open(url).read
+  # data = JSON.parse(response)
+  if allergens != nil
+    allergies = allergens.gsub('Cereals containing', '').split(',')
+    allergies.each do |allergy|
+      ingredient_name = allergy.strip
+      ingredient = Ingredient.find_or_create_by(name: ingredient_name)
+      dish_ingredient = DishIngredient.create!(ingredient: ingredient, dish: dish)
+    end
+  end
+end
+
+# filepath = 'db/data/bread.json'
+# new_data = File.read(filepath)
+# bread = JSON.parse(new_data)
+# pp bread
+
 filepath = 'db/data/menu.json'
 serialized_menu = File.read(filepath)
 menus = JSON.parse(serialized_menu)
-# pp menu
 menus.each do |menu|
   menu = menu['menu']
   cheam_school_menu = SchoolMenu.create!(school: cheam, date: Date.parse(menu['dates'][0]))
@@ -67,7 +91,6 @@ menus.each do |menu|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
-      # pp menu
       monday_dishes = menu['days'][0]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
