@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+<<<<<<< HEAD
   before_action :set_menu, only: [:show]
 
   def index
@@ -32,4 +33,6 @@ class MenusController < ApplicationController
   def menu_params
     params.require(:menu_date)
   end
+=======
+>>>>>>> 11d01919231e0ddea9311a726d579021a0a395a3
 end

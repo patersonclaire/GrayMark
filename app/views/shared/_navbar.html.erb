@@ -31,12 +31,14 @@
             </div>
           </li>
         <% else %>
+         <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+          <br>
           <li class="nav-item">
             <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+
         <% end %>
       </ul>
     </div>

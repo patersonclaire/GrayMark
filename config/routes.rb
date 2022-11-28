@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get '/components', to: "pages#components"
 
   resources :schools, only: %i[index show new create] do
-    resources :school_menus, only: %i[index show]
+    resources :school_menus, only: %i[index]
   end
 
-  resources :school_menus, only: %i[] do
+  resources :school_menus, only: %i[show] do
     resources :menus, only: %i[index show new create edit update]
   end
 
