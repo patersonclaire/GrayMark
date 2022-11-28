@@ -13,9 +13,23 @@ class MenusController < ApplicationController
                       .limit(5)
   end
 
+  def new
+    @menu = Menu.new
+  end
+
+  def create
+    @menu = Menu.new(menu_params)
+    # profile
+    # menu_date
+  end
+
   private
 
   def set_menu
     @menu = Menu.find(params[:id])
+  end
+
+  def menu_params
+    params.require(:menu_date)
   end
 end
