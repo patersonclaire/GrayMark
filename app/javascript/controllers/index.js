@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import DayFocusController from "./day_focus_controller"
+application.register("day-focus", DayFocusController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
