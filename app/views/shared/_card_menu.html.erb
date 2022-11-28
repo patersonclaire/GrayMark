@@ -1,0 +1,17 @@
+<h1><%= @menu.school_menu.date.strftime("%d %B '%y") %> - <%= (@menu.school_menu.date + 18).strftime("%d %B '%y") %> </h1>
+  <br><br>
+    <% @menus_in_week.each do |menu| %>
+      <h3><%= menu.menu_date.strftime("%A") %></h3>
+        <div class="cards">
+          <% menu.dishes.each do |dish| %>
+            <div class="card">
+              <div class="card-body">
+                <br>
+                <h3 class="card-title"> <%= dish.name %> </h3>
+                <br>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <br><br>
+    <% end %>
