@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "", class: "navbar-brand" do %>
       <%= image_tag "logoimg.png", class:"logo" %>
     <% end %>
 
@@ -11,7 +11,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to 'Dashboard', "#", class:"btn btn-link" %>
+            <%= link_to 'Dashboard', schools_path, class:"btn btn-link" %>
           </li>
           <li>
             <%= link_to 'Add a School', new_school_path, class: 'btn btn-primary' %>

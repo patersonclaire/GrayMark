@@ -1,5 +1,6 @@
 <div class="container page">
-  <h1><%= @menu.school_menu.date.strftime("%d %B '%y") %> - <%= (@menu.school_menu.date + 4).strftime("%d %B '%y") %> </h1>
+  <h1><%= @menu.school_menu.date.strftime("%d %B '%y") %> - <%= (@menu.school_menu.date + 18).strftime("%d %B '%y") %> </h1>
+  <br><br>
   <div>
     <% @menus_in_week.each do |menu| %>
       <div class="card mb-3" >
