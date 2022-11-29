@@ -14,8 +14,8 @@ puts 'Cleaning database'
 DishIngredient.destroy_all
 ProfileAllergy.destroy_all
 Ingredient.destroy_all
-Dish.destroy_all
 DayDish.destroy_all
+Dish.destroy_all
 Menu.destroy_all
 SchoolMenu.destroy_all
 Profile.destroy_all

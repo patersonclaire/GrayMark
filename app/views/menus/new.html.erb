@@ -1,15 +1,16 @@
 <div class="bgimg">
   <div class="col d-flex justify-content-center">
     <div class ="card-signup text-center">
-      <%= simple_form_for [@school_menu, @menu] do |f| %>
-        <select name="menu[allergen][]" id="menu_allergen" multiple>
-          <% Ingredient.all.each do |ingredient| %>
-            <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
-          <% end %>
-        </select>
-        <%# <%= f.input :allergen, collection:  %>
-        <%= f.button :submit, class: "btn btn-primary", value: "Create Allergy Free Menu" %>
-      <% end %>
+      <div class ="card-body">
+        <h3>Create an Allergy Free Menu</h3>
+        <%= simple_form_for [@school_menu, @menu] do |f| %>
+          <%= f.input :profile, label: "Select an allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}} %>
+          <%= f.button :submit, class: "btn btn-primary", value: "Create Menu" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
