@@ -5,7 +5,14 @@
   position: fixed;
   width: 100%;
   z-index: 1;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
 }
+
+.navbar-lewagon-white {
+  background-color: white;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -18,12 +25,12 @@
 
 .avatar.dropdown-toggle {
   margin-left: 10px;
+
 }
 
 .logo {
-  width: 165px;
-  height: 100px;
-  margin: 15px
+  width: 150px;
+  height: auto;
 }
 .nav-item{
 
