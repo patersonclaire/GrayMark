@@ -1,20 +1,21 @@
 <div class="bgimg">
   <%# <div class="banner hero"> %>
   <div class= "banner-homepage">
-  <div class="container">
-      <h1>Safe menus for every child in seconds</h1>
-      <h3>Generate safe and nutritious menus for every child and their dietary needs, at a click of a button</h3>
-      <br><br>
-      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
+    <div class="container">
+        <h1>Safe menus for every child in seconds</h1>
+        <h3>Generate safe and nutritious menus for every child and their dietary needs, at a click of a button</h3>
+        <br><br>
+        <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
     </div>
-    <%= image_tag "header-image.png", class:"header-img" %>
+    <a href="#how-it-works" class="scroll-btn" id="scroll-button">How it works  <i class="fa-solid fa-arrow-down"></i></a>
+      <%= image_tag "header-image.png", class:"header-img" %>
   </div>
-  <%# </div> %>
 </div>
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center" id="how-it-works">
+    <br>
       <h2>How it works</h2>
       <div class="cards">
       <div class="card-category transparent">
@@ -88,7 +89,8 @@
 <footer class="footer-07">
   <div class="justify-content-center">
     <div class="col-md-12 text-center">
-      <h2> GrayMark</h2>
+      <h2> GrayMark </h2>
+      <hr>
     </div>
    <div class="column justify-content-center">
     <div class="col-md-12 text-center">
@@ -99,6 +101,9 @@
       <button type="button" class="btn btn-link"style="color:white;">Features</button>
       <button type="button" class="btn btn-link" style="color:white;">Contact</button>
       <button type="button" class="btn btn-link" style="color:white;">Don't have an account? Sign up</button>
+   <i class="fa-brands fa-dribbble"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
     </div>
   </div>
 </footer>
