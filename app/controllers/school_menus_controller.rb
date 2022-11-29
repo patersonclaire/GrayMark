@@ -8,8 +8,6 @@ class SchoolMenusController < ApplicationController
     @menus_in_week = @school_menu.menus.where(menu_date: @school_menu.date..(@school_menu.date + 5.days)).limit(5)
   end
 
-
-
   private
 
   def set_school

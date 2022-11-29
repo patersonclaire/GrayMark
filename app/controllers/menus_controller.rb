@@ -15,10 +15,19 @@ class MenusController < ApplicationController
               .having('count(profiles.id) >= ?', allergens.size)
 
     if !profile.empty?
-      p 'Point to exustug one'
+      p 'Point to existing one'
+      # redirect to existing menu
     else
       profile = Profile.new(school: @school_menu.school)
       profile.save
+
+      allergens.each do |ingredient_id|
+        new_profile_allergy = ProfileAllergy.new
+        new_profile_allergy.profile = profile
+        new_profile_allergy.ingredient_id = ingredient_id
+        new_profile_allergy.save
+      end
+
       (@school_menu.date..(@school_menu.date + 4.days)).each do |date|
 
         @menu = Menu.new
@@ -27,8 +36,7 @@ class MenusController < ApplicationController
         @menu.menu_date = date
         @menu.save
 
-        @school_menu.dishes do |dish|
-          raise
+        @school_menu.dishes.each do |dish|
           unless dish.ingredient_ids.any? { |id| allergens.include?(id) }
             DayDish.create(menu: @menu, dish: dish)
           end
