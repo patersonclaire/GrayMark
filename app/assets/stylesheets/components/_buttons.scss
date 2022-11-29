@@ -46,3 +46,24 @@
   border-radius: 6px;
   color: white;
 }
+
+hr{
+  height:3px;
+  border-width:0;
+  background-color:white;
+}
+
+.scroll-btn {
+text-decoration: none;
+bottom: 10px;
+font-weight: bold;
+font-size: 18px;
+}
+
+#scroll-button {
+  position: absolute;
+  bottom: 10px;
+  width:100%;
+  text-align: center;
+  left: 10px;
+}
