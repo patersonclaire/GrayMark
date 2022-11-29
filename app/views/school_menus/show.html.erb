@@ -2,6 +2,8 @@
   <h1><%= @school_menu.date.strftime("%d %B '%y") %> - <%= (@school_menu.date + 18.days).strftime("%d %B '%y") %> </h1>
   <br><br>
 
+  <%= link_to "Create New Menu", new_school_menu_menu_path(params[:id]), class: "btn btn-primary" %>
+
   <div class = "row mb-5">
     <div class="col col-lg-1">
       <button type="button" class="btn-circle" data-day="Monday" data-action="click->day-focus#scroll">M</button>
