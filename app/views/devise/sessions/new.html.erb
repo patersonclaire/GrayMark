@@ -6,6 +6,8 @@
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
+    <div class="row">
+             <div class="col">
     <%= f.input :email,
                 required: false,
                 autofocus: true,
@@ -18,7 +20,7 @@
   </div>
 
   <div class="form-actions">
-  <%= f.button :submit, class: "sign-up-btn", value: "log in" %>
+  <%= f.button :submit, class:"sign-up-btn", value: "log in" %>
   </div>
    <%= link_to "Don't have an account? Sign up", new_user_registration_path %>
 <% end %>
