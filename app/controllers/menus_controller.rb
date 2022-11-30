@@ -1,3 +1,6 @@
+require "json"
+require "open-uri"
+
 class MenusController < ApplicationController
 
   def show
@@ -36,7 +39,6 @@ class MenusController < ApplicationController
       end
 
       (@school_menu.date..(@school_menu.date + 4.days)).each do |date|
-
         @menu = Menu.new
         @menu.school_menu = @school_menu
         @menu.profile = profile
@@ -56,4 +58,26 @@ class MenusController < ApplicationController
       redirect_to school_path(@school_menu.school)
     end
   end
+
+  private
+
+  def search_recipes(diet, intolerances, excludeIngredients, mealtype)
+
+    #diet is selected one by one hard seeded
+    #intolerances is selected one by one hard seeded
+    #excludeIngredients is selected one by one hard seeded
+    #Repeat this for each meal type (main, side, dessert)
+
+    url = "https://api.spoonacular.com/recipes/complexSearch?apiKey=#{ENV['SPOONACULAR_API']}&diet=#{diet}&intolerances=#{intolerances}&excludeIngredients=#{excludeIngredients}&mealtype#{mealtype}"
+    dish_serialized = URI.open(url).read
+    dishes = JSON.parse(dish_serialized)
+    dish = dishes["results"].first["title"]
+
+    # dishes.results.each do |dish|
+    # dish.title
+    # end
+    # https://api.spoonacular.com/recipes/complexSearch?apiKey=99c01005a66940b5a1c9b6e6cfed1ef7&excludeIngredients=eggs,bread,brown rice&diet=vegetarian
+  end
+
+  search_recipes("vegetarian", "Seafood", "", "main course")
 end
