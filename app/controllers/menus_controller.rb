@@ -6,7 +6,7 @@ class MenusController < ApplicationController
 
   def create
     @school_menu = SchoolMenu.find(params[:school_menu_id])
-    allergens = params[:menu][:allergen].map { |id| id.to_i }
+    allergens = params[:menu].values.reject { |id| id.blank? }.map { |id| id.to_i }
     # it does not exist
     profile = Profile
               .joins(:profile_allergies)
@@ -34,6 +34,7 @@ class MenusController < ApplicationController
         @menu.school_menu = @school_menu
         @menu.profile = profile
         @menu.menu_date = date
+        @menu.tailored = true
         @menu.save
 
         @school_menu.dishes.each do |dish|
@@ -42,6 +43,8 @@ class MenusController < ApplicationController
           end
         end
       end
+
+      redirect_to school_path(@school_menu.school)
     end
   end
 end
