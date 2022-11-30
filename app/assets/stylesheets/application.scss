@@ -16,12 +16,19 @@ body, html {
   margin: 0;
 }
 
+.bgimg-cards {
+  position: relative;
+  background-position: center;
+  background-repeat:repeat;
+  background-size: cover;
+  background-image: url("Background.jpg");
+}
+
 .bgimg {
   background-image: url("Background.jpg");
   position: relative;
-  // opacity: 0.65;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat:repeat;
   background-size: cover;
   height: 100%;
 }
@@ -44,11 +51,13 @@ h3 {
 p {
   font-size: 18px;
   font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 p.bold {
   font-size: 18px;
   font-weight: 700;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 label {
@@ -60,8 +69,21 @@ label {
   background-color: $moss-green;
   padding: 7em 0;
   display: block;
-  width:1440px;
+  width:100%;
   height: 269px;
+}
+.fa-heart{
+  color: red;
+}
+
+.footer{
+
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  margin-right: 200px;
 }
 
 .row > *{

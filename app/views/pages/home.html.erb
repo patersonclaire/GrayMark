@@ -1,50 +1,51 @@
 <div class="bgimg">
   <%# <div class="banner hero"> %>
   <div class= "banner-homepage">
-  <div class="container">
-      <h1>Safe menus for every child in seconds</h1>
-      <h3>Generate safe and nutritious menus for every child and their dietary needs, at a click of a button</h3>
-      <br><br>
-      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
+    <div class="container">
+        <h1>Safe menus for every child in seconds</h1>
+        <h3>Generate safe and nutritious menus for every child and their dietary needs, at a click of a button</h3>
+        <br><br>
+        <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary" %>
     </div>
-    <%= image_tag "header-image.png", class:"header-img" %>
+    <a href="#how-it-works" class="scroll-btn" id="scroll-button"> <i class="fa-regular fa-user-chef"></i> How It Works <i class="fa-solid fa-arrow-down"></i></a>
+      <%= image_tag "header-image.png", class:"header-img" %>
   </div>
-  <%# </div> %>
 </div>
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-12 text-center">
-      <h2>How it works</h2>
+    <div class="col-md-12 text-center" id="how-it-works">
+    <br><br><br>
+      <h2><u>How it works</u></h2>
+      <br><br>
       <div class="cards">
       <div class="card-category transparent">
         <img src="https://cdn-icons-png.flaticon.com/512/5182/5182195.png" alt="owl education">
         <br>
-        <h3>Partner with a school</h3>
+        <h3><u>Partner with a school</u></h3>
         <p>Stay organized. Work with and manage all your schools and students from a single location</p>
       </div>
 
     <div class="card-category transparent">
       <img src="https://cdn-icons-png.flaticon.com/512/5974/5974506.png" alt="healthy bowl">
       <br>
-      <h3>Upload dietary needs</h3>
+      <h3><u>Upload dietary needs</u></h3>
       <p>Upload any dietary restrictions your schools and students have</p>
     </div>
 
     <div class="card-category transparent">
       <img src="https://cdn-icons-png.flaticon.com/512/5971/5971703.png" alt="custom menu">
       <br>
-      <h3>Unique, Safe & nutritious menus</h3>
+      <h3><u>Unique, Safe & nutritious menus</u></h3>
       <p>GrayMark will generate a nutritious menu safe for everyone to eat in a matter of seconds</p>
     </div>
   </div>
   <br><br><br><br>
 </div>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12 text-center">
-      <h2>Questions?</h2>
+      <h2><u>Questions?</u></h2>
       <h3>We got answers</h3>
       <br><br>
     </div>
@@ -83,12 +84,15 @@
   </div>
   <br><br><br><br>
 </div>
+</div>
+</div>
 
-
-<footer class="footer-07">
+<footer class="footer-07" width="90%" border="0" align="center">
   <div class="justify-content-center">
     <div class="col-md-12 text-center">
-      <h2> GrayMark</h2>
+    <div style = "position:relative; ">
+      <h2> GrayMark </h2>
+      <hr>
     </div>
    <div class="column justify-content-center">
     <div class="col-md-12 text-center">
@@ -100,5 +104,10 @@
       <button type="button" class="btn btn-link" style="color:white;">Contact</button>
       <button type="button" class="btn btn-link" style="color:white;">Don't have an account? Sign up</button>
     </div>
+    </div>
+    <div class="footer-copyright" style="color:white;">
+    This website was made at <i class="fas fa-heart"></i> Le Wagon
+      </div>
+      </div>
   </div>
 </footer>
