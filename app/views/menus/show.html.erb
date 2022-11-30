@@ -1,10 +1,10 @@
 <div class="bgimg">
   <div data-controller="day-focus" class="container page" style="height: 200vh">
-    <h1><%= @school_menu.date.strftime("%d %B '%y") %> - <%= (@school_menu.date + 18.days).strftime("%d %B '%y") %> </h1>
+    <h1><%= @menu.menu_date.strftime("%d %B '%y") %> - <%= (@menu.menu_date + 4.days).strftime("%d %B '%y") %> </h1>
     <br><br>
 
   <div class="container" style="margin-bottom: 50px">
-    <%= link_to "Create New Menu", new_school_menu_menu_path(params[:id]), class: "btn btn-primary" %>
+    <%#= link_to "Create New Menu", new_school_menu_menu_path(params[:id]), class: "btn btn-primary" %>
   </div>
 
     <div class = "row mb-5">

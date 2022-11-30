@@ -1,4 +1,11 @@
 class MenusController < ApplicationController
+
+  def show
+    @menu = Menu.find(params[:id])
+    @menus_in_week = @menu.school_menu.menus.where(menu_date: (@menu.menu_date)..(@menu.menu_date + 4.days), tailored: @menu.tailored, profile: @menu.profile)
+    # raise
+  end
+
   def new
     @menu = Menu.new
     @school_menu = SchoolMenu.find(params[:school_menu_id])
@@ -37,7 +44,9 @@ class MenusController < ApplicationController
         @menu.tailored = true
         @menu.save
 
-        @school_menu.dishes.each do |dish|
+        @existing_menu = @school_menu.menus.find_by(menu_date: date)
+
+        @existing_menu.dishes.each do |dish|
           unless dish.ingredient_ids.any? { |id| allergens.include?(id) }
             DayDish.create(menu: @menu, dish: dish)
           end
