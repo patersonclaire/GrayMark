@@ -68,8 +68,21 @@ label {
   background-color: $moss-green;
   padding: 7em 0;
   display: block;
-  width:1440px;
+  width:100%;
   height: 269px;
+}
+.fa-heart{
+  color: red;
+}
+
+.footer{
+
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  margin-right: 200px;
 }
 
 .row > *{
