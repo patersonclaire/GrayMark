@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   end
 
   resources :school_menus, only: %i[show] do
-    resources :menus, only: %i[index show new create]
+    resources :menus, only: %i[index new create]
   end
 
-  resources :menus, only: %i[] do
+  resources :menus, only: %i[show] do
     resources :day_dishes, only: %i[index show]
   end
 

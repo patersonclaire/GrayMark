@@ -1,15 +1,114 @@
+<section>
+  <h3 class="card-title">
+    <%= @first_school_menu.date.strftime("%d %B '%y") %> - <%= (@first_school_menu.date + 4).strftime("%d %B '%y") %>
+    <%= link_to "Create New Allergy Free Menu",  new_school_menu_menu_path(@first_school_menu), class: "btn btn-primary"%>
+  </h3>
+  <br>
+  <br>
+
   <div class="cards">
-    <% @school.school_menus.each do |school_menu| %>
+    <% @first_week_menus.where(tailored: true).each do |menu| %>
       <div class="card">
         <div class="card-body">
           <br>
-          <h3 class="card-title"><%= school_menu.date.strftime("%d %B '%y") %> - <%= (school_menu.date + 18).strftime("%d %B '%y") %> </h3>
           <%# <p class="card-text"><%= school.postcode %>
+            <h3>Allergen Free Menu</h3>
           <div>
             <br>
-            <%= link_to "View menu", school_menu_path(school_menu), class: "btn btn-primary" %>
+            <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
     <% end %>
+    <div class="card">
+      <% menu = @first_week_menus.find_by(tailored: false) %>
+      <div class="card-body">
+        <br>
+        <h3>Provided Menu </h3>
+        <%# <p class="card-text"><%= school.postcode %>
+        <div>
+          <br>
+          <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
+
+<br>
+<br>
+<br>
+
+<section>
+<h3 class="card-title"><%= @second_school_menu.date.strftime("%d %B '%y") %> - <%= (@second_school_menu.date + 4).strftime("%d %B '%y") %>
+<%= link_to "Create New Allergy Free Menu",  new_school_menu_menu_path(@second_school_menu), class: "btn btn-primary"%>
+</h3>
+<br>
+<br>
+<div class="cards">
+  <% @second_week_menus.where(tailored: true).each do |menu| %>
+    <div class="card">
+      <div class="card-body">
+        <br>
+        <%# <p class="card-text"><%= school.postcode %>
+          <h3>Allergen Free Menu</h3>
+        <div>
+          <br>
+          <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="card">
+    <% menu = @second_week_menus.find_by(tailored: false) %>
+    <div class="card-body">
+      <br>
+      <h3>Provided Menu </h3>
+      <%# <p class="card-text"><%= school.postcode %>
+      <div>
+        <br>
+        <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<br>
+<br>
+<br>
+
+<section>
+<h3 class="card-title"><%= @third_school_menu.date.strftime("%d %B '%y") %> - <%= (@third_school_menu.date + 4).strftime("%d %B '%y") %>
+<%= link_to "Create New Allergy Free Menu",  new_school_menu_menu_path(@third_school_menu), class: "btn btn-primary"%>
+</h3>
+<br>
+<br>
+<div class="cards">
+  <% @third_week_menus.where(tailored: true).each do |menu| %>
+    <div class="card">
+      <div class="card-body">
+        <br>
+        <%# <p class="card-text"><%= school.postcode %>
+          <h3>Allergen Free Menu</h3>
+        <div>
+          <br>
+          <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="card">
+    <% menu = @third_week_menus.find_by(tailored: false) %>
+    <div class="card-body">
+      <br>
+      <h3>Provided Menu</h3>
+      <%# <p class="card-text"><%= school.postcode %>
+      <div>
+        <br>
+        <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

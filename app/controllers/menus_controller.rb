@@ -2,6 +2,13 @@ require "json"
 require "open-uri"
 
 class MenusController < ApplicationController
+
+  def show
+    @menu = Menu.find(params[:id])
+    @menus_in_week = @menu.school_menu.menus.where(menu_date: (@menu.menu_date)..(@menu.menu_date + 4.days), tailored: @menu.tailored, profile: @menu.profile)
+    # raise
+  end
+
   def new
     @menu = Menu.new
     @school_menu = SchoolMenu.find(params[:school_menu_id])
@@ -9,7 +16,7 @@ class MenusController < ApplicationController
 
   def create
     @school_menu = SchoolMenu.find(params[:school_menu_id])
-    allergens = params[:menu][:allergen].map { |id| id.to_i }
+    allergens = params[:menu].values.reject { |id| id.blank? }.map { |id| id.to_i }
     # it does not exist
     profile = Profile
               .joins(:profile_allergies)
@@ -36,16 +43,19 @@ class MenusController < ApplicationController
         @menu.school_menu = @school_menu
         @menu.profile = profile
         @menu.menu_date = date
+        @menu.tailored = true
         @menu.save
 
-        @school_menu.dishes.each do |dish|
-          if dish.ingredient_ids.any? { |id| allergens.include?(id) }
-            # find a substitute recipe -> search_recipes(...)
-          else
+        @existing_menu = @school_menu.menus.find_by(menu_date: date)
+
+        @existing_menu.dishes.each do |dish|
+          unless dish.ingredient_ids.any? { |id| allergens.include?(id) }
             DayDish.create(menu: @menu, dish: dish)
           end
         end
       end
+
+      redirect_to school_path(@school_menu.school)
     end
   end
 
