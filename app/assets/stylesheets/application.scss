@@ -15,11 +15,18 @@ body, html {
   margin: 0;
 }
 
+.bgimg-cards {
+  position: relative;
+  background-position: center;
+  background-repeat:repeat;
+  background-size: cover;
+  background-image: url("Background.jpg");
+}
+
 .bgimg {
   position: relative;
-  // opacity: 0.65;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat:repeat;
   background-size: cover;
   background-image: url("Background.jpg");
   height: 100%;
