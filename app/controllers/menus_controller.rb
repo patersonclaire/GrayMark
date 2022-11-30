@@ -79,5 +79,5 @@ class MenusController < ApplicationController
     # https://api.spoonacular.com/recipes/complexSearch?apiKey=99c01005a66940b5a1c9b6e6cfed1ef7&excludeIngredients=eggs,bread,brown rice&diet=vegetarian
   end
 
-  search_recipes("vegetarian", "Seafood", "", "main course")
+  # search_recipes("vegetarian", "Seafood", "", "main course")
 end
