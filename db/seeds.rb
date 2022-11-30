@@ -51,6 +51,11 @@ file = URI.open('https://res.cloudinary.com/df5d4fbx4/image/upload/v1669285062/l
 st_trinians.photo.attach(io: file, filename: 'st_trinians.jpg', content_type: 'image/jpg')
 st_trinians.save
 
+kings = School.create!(name: 'Kings', town: 'Winchester', postcode: 'SO22 5PN', menu_count: 4, user: dietitian)
+file = URI.open('https://res.cloudinary.com/df5d4fbx4/image/upload/v1669726023/rfqojlnjwiyttmu5qv0a.png')
+kings.photo.attach(io: file, filename: 'kings.jpg', content_type: 'image/jpg')
+kings.save
+
 CSV.foreach('db/data/allergy.csv', headers: true, header_converters: :symbol) do |row|
   ingredient = Ingredient.find_or_create_by(name: row[:name])
   profile = Profile.create!(school: cheam)
@@ -76,18 +81,13 @@ CSV.foreach('db/data/Ingredients_Allergens.csv', headers: true, header_converter
   end
 end
 
-# filepath = 'db/data/bread.json'
-# new_data = File.read(filepath)
-# bread = JSON.parse(new_data)
-# pp bread
-
 filepath = 'db/data/menu.json'
 serialized_menu = File.read(filepath)
 menus = JSON.parse(serialized_menu)
 menus.each do |menu|
   menu = menu['menu']
   cheam_school_menu = SchoolMenu.create!(school: cheam, date: Date.parse(menu['dates'][0]))
-  Profile.limit(10).each do |profile|
+  Profile.limit(5).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
@@ -102,7 +102,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 1.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
       monday_dishes = menu['days'][1]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -115,7 +114,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 2.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
       monday_dishes = menu['days'][2]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -128,7 +126,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 3.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
       monday_dishes = menu['days'][3]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -141,7 +138,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 4.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: cheam_school_menu, menu_date: date)
       monday_dishes = menu['days'][4]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -154,11 +150,10 @@ menus.each do |menu|
   end
 
   eton_school_menu = SchoolMenu.create!(school: eton, date: Date.parse(menu['dates'][0]))
-  Profile.offset(10).limit(10).each do |profile|
+  Profile.offset(5).limit(5).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: eton_school_menu, menu_date: date)
-      # pp menu
       monday_dishes = menu['days'][0]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
@@ -170,7 +165,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 1.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: eton_school_menu, menu_date: date)
       monday_dishes = menu['days'][1]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -183,7 +177,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 2.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: eton_school_menu, menu_date: date)
       monday_dishes = menu['days'][2]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -196,7 +189,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 3.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: eton_school_menu, menu_date: date)
       monday_dishes = menu['days'][3]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -209,7 +201,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 4.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: eton_school_menu, menu_date: date)
       monday_dishes = menu['days'][4]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -222,11 +213,10 @@ menus.each do |menu|
   end
 
   hogwarts_school_menu = SchoolMenu.create!(school: hogwarts, date: Date.parse(menu['dates'][0]))
-  Profile.offset(20).limit(10).each do |profile|
+  Profile.offset(10).limit(5).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: hogwarts_school_menu, menu_date: date)
-      # pp menu
       monday_dishes = menu['days'][0]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
@@ -238,7 +228,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 1.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: hogwarts_school_menu, menu_date: date)
       monday_dishes = menu['days'][1]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -251,7 +240,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 2.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: hogwarts_school_menu, menu_date: date)
       monday_dishes = menu['days'][2]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -264,7 +252,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 3.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: hogwarts_school_menu, menu_date: date)
       monday_dishes = menu['days'][3]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -277,7 +264,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 4.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: hogwarts_school_menu, menu_date: date)
       monday_dishes = menu['days'][4]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -290,11 +276,10 @@ menus.each do |menu|
   end
 
   bsb_school_menu = SchoolMenu.create!(school: bsb, date: Date.parse(menu['dates'][0]))
-  Profile.offset(30).limit(10).each do |profile|
+  Profile.offset(15).limit(5).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: bsb_school_menu, menu_date: date)
-      # pp menu
       monday_dishes = menu['days'][0]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
@@ -306,7 +291,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 1.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: bsb_school_menu, menu_date: date)
       monday_dishes = menu['days'][1]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -319,7 +303,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 2.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: bsb_school_menu, menu_date: date)
       monday_dishes = menu['days'][2]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -332,7 +315,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 3.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: bsb_school_menu, menu_date: date)
       monday_dishes = menu['days'][3]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -345,7 +327,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 4.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: bsb_school_menu, menu_date: date)
       monday_dishes = menu['days'][4]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -358,11 +339,10 @@ menus.each do |menu|
   end
 
   st_trinians_school_menu = SchoolMenu.create!(school: st_trinians, date: Date.parse(menu['dates'][0]))
-  Profile.offset(40).each do |profile|
+  Profile.offset(20).limit(5).each do |profile|
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i])
       tailord_menu = Menu.create!(profile: profile, school_menu: st_trinians_school_menu, menu_date: date)
-      # pp menu
       monday_dishes = menu['days'][0]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
@@ -374,7 +354,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 1.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: st_trinians_school_menu, menu_date: date)
       monday_dishes = menu['days'][1]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -387,7 +366,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 2.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: st_trinians_school_menu, menu_date: date)
       monday_dishes = menu['days'][2]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -400,7 +378,6 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 3.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: st_trinians_school_menu, menu_date: date)
       monday_dishes = menu['days'][3]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
@@ -413,8 +390,70 @@ menus.each do |menu|
 
     menu['dates'].size.times do |i|
       date = Date.parse(menu['dates'][i]) + 4.day
-      p date
       tailord_menu = Menu.create!(profile: profile, school_menu: st_trinians_school_menu, menu_date: date)
+      monday_dishes = menu['days'][4]
+      main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
+      main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
+      dessert = Dish.create!(name: monday_dishes['dessert'], course: 'dessert')
+      DayDish.create!(menu: tailord_menu, dish: main_one)
+      DayDish.create!(menu: tailord_menu, dish: main_two)
+      DayDish.create!(menu: tailord_menu, dish: dessert)
+    end
+  end
+
+  kings_school_menu = SchoolMenu.create!(school: kings, date: Date.parse(menu['dates'][0]))
+  Profile.offset(25).each do |profile|
+    menu['dates'].size.times do |i|
+      date = Date.parse(menu['dates'][i])
+      tailord_menu = Menu.create!(profile: profile, school_menu: kings_menu, menu_date: date)
+      monday_dishes = menu['days'][0]
+      main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
+      main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
+      dessert = Dish.create!(name: monday_dishes['dessert'], course: 'dessert')
+      DayDish.create!(menu: tailord_menu, dish: main_one)
+      DayDish.create!(menu: tailord_menu, dish: main_two)
+      DayDish.create!(menu: tailord_menu, dish: dessert)
+    end
+
+    menu['dates'].size.times do |i|
+      date = Date.parse(menu['dates'][i]) + 1.day
+      tailord_menu = Menu.create!(profile: profile, school_menu: kings_menu, menu_date: date)
+      monday_dishes = menu['days'][1]
+      main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
+      main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
+      dessert = Dish.create!(name: monday_dishes['dessert'], course: 'dessert')
+      DayDish.create!(menu: tailord_menu, dish: main_one)
+      DayDish.create!(menu: tailord_menu, dish: main_two)
+      DayDish.create!(menu: tailord_menu, dish: dessert)
+    end
+
+    menu['dates'].size.times do |i|
+      date = Date.parse(menu['dates'][i]) + 2.day
+      tailord_menu = Menu.create!(profile: profile, school_menu: kings_menu, menu_date: date)
+      monday_dishes = menu['days'][2]
+      main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
+      main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
+      dessert = Dish.create!(name: monday_dishes['dessert'], course: 'dessert')
+      DayDish.create!(menu: tailord_menu, dish: main_one)
+      DayDish.create!(menu: tailord_menu, dish: main_two)
+      DayDish.create!(menu: tailord_menu, dish: dessert)
+    end
+
+    menu['dates'].size.times do |i|
+      date = Date.parse(menu['dates'][i]) + 3.day
+      tailord_menu = Menu.create!(profile: profile, school_menu: kings_menu, menu_date: date)
+      monday_dishes = menu['days'][3]
+      main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
+      main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')
+      dessert = Dish.create!(name: monday_dishes['dessert'], course: 'dessert')
+      DayDish.create!(menu: tailord_menu, dish: main_one)
+      DayDish.create!(menu: tailord_menu, dish: main_two)
+      DayDish.create!(menu: tailord_menu, dish: dessert)
+    end
+
+    menu['dates'].size.times do |i|
+      date = Date.parse(menu['dates'][i]) + 4.day
+      tailord_menu = Menu.create!(profile: profile, school_menu: kings_menu, menu_date: date)
       monday_dishes = menu['days'][4]
       main_one = Dish.create!(name: monday_dishes['main_one'], course: 'main')
       main_two = Dish.create!(name: monday_dishes['main_two'], course: 'main')

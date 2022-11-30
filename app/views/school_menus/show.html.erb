@@ -3,7 +3,7 @@
     <h1><%= @school_menu.date.strftime("%d %B '%y") %> - <%= (@school_menu.date + 18.days).strftime("%d %B '%y") %> </h1>
     <br><br>
 
-  <div class="container">
+  <div class="container" style="margin-bottom: 50px">
     <%= link_to "Create New Menu", new_school_menu_menu_path(params[:id]), class: "btn btn-primary" %>
   </div>
 
