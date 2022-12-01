@@ -6,7 +6,7 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
-@import "tom-select/dist/css/tom-select.min.css";
+@import "tom-select/dist/scss/tom-select";
 
 // Your CSS partials
 @import "components/index";
@@ -65,10 +65,10 @@ label {
 
 .footer-07 {
   background-color: $moss-green;
-  padding: 7em 0;
+  padding: 1em 0;
   display: block;
   width:100%;
-  height: 269px;
+  // height: 269px;
   align-items: center;
 }
 
