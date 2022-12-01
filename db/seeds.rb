@@ -465,12 +465,12 @@ menus.each do |menu|
   end
 
 
-# filepath = "db/data/ingredients.csv"
+filepath = "db/data/ingredients.csv"
 
-# CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
-#   # puts "#{row['First Name']} #{row['Last Name']} played #{row['Instrument']}"
-#   p row
-#   Ingredient.create!(name: row[0].split(";")[0])
-# end
+CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
+  # puts "#{row['First Name']} #{row['Last Name']} played #{row['Instrument']}"
+  p row
+  Ingredient.create!(name: row[0].split(";")[0])
+end
 
 # pp Ingredient.all
