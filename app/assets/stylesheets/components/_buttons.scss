@@ -1,3 +1,7 @@
+.btn-primary {
+  color: white;
+}
+
 .btn-primary:hover {
   background-color: white;
 }
@@ -28,6 +32,7 @@
   order: 0;
   flex-grow: 0;
 }
+
 .btn-circle:hover {
   background-color: white;
   color: black;
@@ -45,28 +50,6 @@
   background:$moss-green;
   border-radius: 6px;
   color: white;
-}
-.sign-up-btn:hover {
-  background-color:$moss-green ;
-  color:black;
-}
-
-#menu_allergen {
-  display: block;
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #000000;
-  background-color: #F4F4F4;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border-radius: 6px;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 hr{
@@ -88,11 +71,4 @@ font-size: 18px;
   width:100%;
   text-align: center;
   left: 10px;
-}
-
-.home{
-
-font-size: larger;
-color: white;
-font-weight: bold;
 }

@@ -3,9 +3,8 @@ class Ingredient < ApplicationRecord
   has_many :dish_ingredient, dependent: :destroy
   has_many :profile_allergy, dependent: :destroy
 
-
   def self.diets
-    diets = ["Vegetarian", "Vegan", "Pescetarian", "Paleo"]
+    diets = ["Vegetarian", "Vegan"]
   end
 
   def self.intolerances

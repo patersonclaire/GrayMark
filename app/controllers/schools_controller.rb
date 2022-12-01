@@ -24,4 +24,5 @@ class SchoolsController < ApplicationController
   def set_school
     @school = School.find(params[:id])
   end
+  
 end
