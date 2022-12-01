@@ -16,13 +16,29 @@
     </div>
     <div class="col col-lg-1">
       <button type="button" class="btn-circle" data-day="Thursday" data-action="click->day-focus#scroll">T</button>
-    </div>  
+    </div>
     <div class="col col-lg-1">
       <button type="button" class="btn-circle" data-day="Friday" data-action="click->day-focus#scroll">F</button>
     </div>
   </div>
 
-  <% @menus_in_week.each do |menu| %>
+  <% @menus_grouped_by_day.each do |day, menus| %>
+    <div class="mb-5" id="<%= day %>">
+      <h2><%= day %></h2>
+      <div class="cards">
+        <% menus.each do |menu| %>
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title"><%= menu.dishes.pluck(:name).join(", ") %></h3>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+  <!-- <% @menus_in_week.each do |menu| %>
     <div id="<%= menu.menu_date.strftime("%A")%>">
       <h2><%= menu.menu_date.strftime("%A") %></h2>
         <br>
@@ -36,5 +52,4 @@
           <% end %>
         </div>
     </div>
-  <% end %>
-</div>
+  <% end %> -->
