@@ -18,7 +18,7 @@
         <div class="card-body">
           <br>
           <%# <p class="card-text"><%= school.postcode %>
-            <h3>Allergen Free Menu</h3>
+            <h3><%= menu.profiles.profile_allergies %> - <%=  %></h3>
           <div>
             <br>
             <%= link_to "View menu", menu_path(menu), class: "btn btn-outline-primary" %>
@@ -46,7 +46,7 @@
           <div class="card-body">
             <br>
             <%# <p class="card-text"><%= school.postcode %>
-              <h3>Allergen Free Menu</h3>
+              <h3><%= menu.profiles.profile_allergies %> - <%=  %></h3>
             <div>
               <br>
               <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>
@@ -75,7 +75,7 @@
           <div class="card-body">
             <br>
             <%# <p class="card-text"><%= school.postcode %>
-              <h3>Allergen Free Menu</h3>
+              <h3><%= menu.profiles.profile_allergies %> - <%=  %></h3>
             <div>
               <br>
               <%= link_to "View menu", menu_path(menu), class: "btn btn-primary" %>

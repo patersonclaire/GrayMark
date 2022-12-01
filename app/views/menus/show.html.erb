@@ -25,7 +25,6 @@
       </div>
     </div>
 
-
     <% @menus_in_week.each do |menu| %>
       <div id="<%= menu.menu_date.strftime("%A")%>">
         <h2><%= menu.menu_date.strftime("%A") %></h2>
@@ -34,6 +33,7 @@
             <% menu.dishes.each do |dish| %>
               <div class="card">
                 <div class="card-body">
+                  <%= cl_image_path dish.image.key, height: 300, crop: :fill %>
                   <h3 class="card-title"> <%= dish.name %> </h3>
                 </div>
               </div>

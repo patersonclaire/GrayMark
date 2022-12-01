@@ -22,8 +22,19 @@ class Spoonacular
 
   def make_dishes
     @dish = Dish.find_or_create_by(name: @dish_api_info["title"], course: @mealtype)
+    if @dish.previously_new_record?
+      attach_images
+    end
+
     make_ingredients
     return @dish
+  end
+
+  def attach_images
+    # get img url
+    file = URI.open(@dish_api_info["image"])
+    @dish.image.attach(io: file, filename: "dish.png", content_type: "image/png")
+    @dish.save
   end
 
   def make_ingredients
