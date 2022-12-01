@@ -57,7 +57,6 @@ class MenusController < ApplicationController
         @menu.tailored = true
         @menu.save
 
-
         # TODO: Fix hardcoding to grab from form 🥸
         main = Spoonacular.new(diet, intolerances.join(","), allergens, "main course")
         dish = main.call
