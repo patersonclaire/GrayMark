@@ -71,7 +71,8 @@ class MenusController < ApplicationController
         DayDish.create(menu: @menu, dish: dish)
       end
 
-      redirect_to menu_path(@school_menu.menus.first)
+      monday_menu = @school_menu.menus.find_by(menu_date: @school_menu.date)
+      redirect_to menu_path(monday_menu)
     end
   end
 end

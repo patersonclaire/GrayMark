@@ -18,7 +18,12 @@
         <div class="card-body">
           <br>
           <%# <p class="card-text"><%= school.postcode %>
-            <h3><%= menu.profiles.profile_allergies %> - <%=  %></h3>
+            <%# <h3><%= menu.profile.profile_allergies.first.ingredient.name %>
+            <h3><% menu.profile.profile_allergies.each do |profile_allergy| %>
+              <%= profile_allergy.ingredient.name.capitalize %>
+            <% end %> free </h3>
+
+          <%# <% raise %>
           <div>
             <br>
             <%= link_to "View menu", menu_path(menu), class: "btn btn-outline-primary" %>
