@@ -18,11 +18,8 @@ body, html {
 
 .bgimg {
   background-image: url("Background.jpg");
-  position: relative;
   background-position: center;
-  background-repeat:repeat;
-  background-size: cover;
-  height: inherit;
+  // height: 100%;
 }
 
 .bgimg-cards {
@@ -93,6 +90,6 @@ max-width: none;
 }
 
 .container.page {
-  padding-bottom: 10%;
+  padding-bottom: 20%;
   padding-top: 10%;
 }
