@@ -1,19 +1,19 @@
 <div class="bgimg">
-  <div class="container page">
-    <div class="col d-flex justify-content-center">
-      <div class ="card-signup text-center">
-        <div class ="card-body">
-          <h3>Create an Allergy Free Menu</h3>
-          <%= simple_form_for [@school_menu, @menu] do |f| %>
-            <%= f.input :diet, label: "Select a diet", collection: Ingredient.diets, input_html: {data: {controller: "tom-select"}, name: "menu[diet]"} %>
-            <%= f.input :intolerances, label: "Select intolerances", collection: Ingredient.intolerances, input_html: {data: {controller: "tom-select"}, name: "menu[intolerances][]", multiple: true} %>
-            <%= f.input :profile, label: "Select any other ingredients", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][1]"} %>
-            <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][2]"} %>
-            <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][3]"} %>
-            <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][4]"} %>
-            <%= f.button :submit, class: "btn btn-primary", value: "Create Menu" %>
-          <% end %>
-        </div>
+  <div class="col d-flex justify-content-center">
+    <div class ="card-signup text-center">
+      <div class ="card-body">
+        <h3>Create an Allergy Free Menu</h3>
+        <%= simple_form_for [@school_menu, @menu] do |f| %>
+          <%= f.input :diet, label: "Select a diet", collection: Ingredient.diets, input_html: {data: {controller: "tom-select"}, name: "menu[diet]"} %>
+
+          <%= f.input :intolerances, label: "Select intolerances", collection: Ingredient.intolerances, input_html: {data: {controller: "tom-select"}, name: "menu[intolerances][]", multiple: true} %>
+
+          <%= f.input :profile, label: "Select any other ingredients", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][1]"} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][2]"} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][3]"} %>
+          <%= f.input :profile, label: "Select another allergy", collection: Ingredient.all, input_html: {data: {controller: "tom-select"}, name: "menu[ingredient][4]"} %>
+          <%= f.button :submit, class: "btn btn-primary", value: "Create Menu" %>
+        <% end %>
       </div>
     </div>
   </div>
