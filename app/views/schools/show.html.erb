@@ -5,17 +5,5 @@
       <h1> <%= @school.name %> </h1>
       <h3> <%= @school.postcode %></h3>
     </div>
-      <h2>Current Menu</h2>
-      <br>
-      <%= render 'shared/card_school-menu' %>
-      <!-- <div class="cards">
-        <% @school_menus.each do |school_menu| %>
-          <div class="card">
-            <%= link_to school_menu_path(school_menu) do %>
-              <%= school_menu.date %> - <%= school_menu.date + 18.days %>
-            <% end %>
-          </div>
-        <% end %>
-      </div> -->
-    </div>
+  </div>
 </div>

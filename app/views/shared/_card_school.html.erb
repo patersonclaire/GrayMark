@@ -1,16 +1,16 @@
  <div class="cards">
-      <% @schools.each do |school| %>
-          <div class="card">
-            <div class="card-body">
-              <%= cl_image_tag school.photo.key, class:"avatar-large"%>
-              <br><br>
-              <h3 class="card-title"><%= school.name %></h3>
-              <p class="card-text"><%= school.postcode %></p>
-              <div>
-                <br>
-                <%= link_to "View menus", school_path(school.id), class: "btn btn-primary"%>
-              </div>
-            </div>
-          </div>
-      <% end %>
+  <% @schools.each do |school| %>
+    <div class="card">
+      <div class="card-body">
+        <%= cl_image_tag school.photo.key, class:"avatar-large"%>
+        <br><br>
+        <h3 class="card-title"><%= school.name %></h3>
+        <p class="card-text"><%= school.postcode %></p>
+        <div>
+          <br>
+          <%= link_to "View menus", school_path(school.id), class: "btn btn-primary"%>
+        </div>
+      </div>
     </div>
+  <% end %>
+</div>
